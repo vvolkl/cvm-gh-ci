@@ -22,3 +22,6 @@ jobs:
        git clone --depth 1 -b mac-fuse-t https://github.com/cvmfs/cvmfs
        cd cvmfs
        ./ci/cvmfs/pkg.sh $PWD $PWD/build 1234 
+  - uses: actions/upload-artifact@v4
+    with:
+    path: /Users/runner/work/cvm-gh-ci/cvm-gh-ci/cvmfs/build/pkg_result/cvmfs*.pkg
