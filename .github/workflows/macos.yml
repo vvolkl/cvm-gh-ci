@@ -18,6 +18,7 @@ jobs:
        brew install fuse-t
     - name: Build CernVM-FS
       run: |
+       sudo -H pip install setuptools
        git clone --depth 1 -b mac-fuse-t https://github.com/cvmfs/cvmfs
        cd cvmfs
        ./ci/cvmfs/pkg.sh $PWD $PWD/build 1234 
