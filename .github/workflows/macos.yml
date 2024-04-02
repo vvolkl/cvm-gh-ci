@@ -16,12 +16,14 @@ jobs:
       run: |
        brew tap macos-fuse-t/homebrew-cask
        brew install fuse-t
-    - name: Build CernVM-FS
+    - name: Install CernVM-FS
       run: |
-       sudo -H pip install setuptools
-       git clone --depth 1 -b mac-fuse-t https://github.com/cvmfs/cvmfs
-       cd cvmfs
-       ./ci/cvmfs/pkg.sh $PWD $PWD/build 1234 
-    - uses: actions/upload-artifact@v4
-      with:
-        path: /Users/runner/work/cvm-gh-ci/cvm-gh-ci/cvmfs/build/pkg_result/cvmfs*.pkg
+       wget http://ecsft.cern.ch/dist/cvmfs/nightlies/cvmfs-git-1234/cvmfs-2.12.0-0.1234-git-cab644d97250f25b.pkg
+       sudo installer -pkg cvmfs-2.12.0-0.1234-git-cab644d97250f25b.pkg -target /
+       sudo cvmfs_config setup
+       sudo sh -c 'echo "CVMFS_CLIENT_PROFILE=single" > /etc/cvmfs/default.local '
+       sudo sh -c 'echo "CVMFS_REPOSITORIES=sft.cern.ch" >> /etc/cvmfs/default.local '
+       sudo cvmfs_config chksetup
+       sudo cvmfs_config probe
+
+
