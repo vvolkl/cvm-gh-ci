@@ -8,12 +8,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, macos-10.15, macos-11]
+        os: [macos-latest, macos-11]
     steps:
     - uses: actions/checkout@v2
     - uses: Homebrew/actions/setup-homebrew@master
-    - name: Test CernVM-FS
+    - name: Install Fuse-t
       run: |
        brew tap macos-fuse-t/homebrew-cask
        brew install fuse-t
-       brew install fuse-t-sshfs
+    - name: Build CernVM-FS
+      run: |
+      git clone --depth 1 -b mac-fuse-t https://github.com/cvmfs/cvmfs
+      cd cvmfs
+      ./ci/cvmfs/pkg.sh 
