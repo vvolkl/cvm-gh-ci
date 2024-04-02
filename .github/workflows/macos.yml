@@ -20,4 +20,4 @@ jobs:
       run: |
        git clone --depth 1 -b mac-fuse-t https://github.com/cvmfs/cvmfs
        cd cvmfs
-       ./ci/cvmfs/pkg.sh 
+       ./ci/cvmfs/pkg.sh $PWD $PWD/build 1234 
