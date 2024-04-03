@@ -18,8 +18,8 @@ jobs:
        brew install fuse-t
     - name: Install CernVM-FS
       run: |
-       wget http://ecsft.cern.ch/dist/cvmfs/nightlies/cvmfs-git-1234/cvmfs-2.12.0-0.1234-git-cab644d97250f25b.pkg
-       sudo installer -pkg cvmfs-2.12.0-0.1234-git-cab644d97250f25b.pkg -target /
+       wget http://ecsft.cern.ch/dist/cvmfs/nightlies/cvmfs-git-1234/cvmfs-2.12.0-0.1234-git-958741c6df468802.pkg
+       sudo installer -pkg cvmfs-2.12.0-0.1234-git-958741c6df468802.pkg -target /
        sudo cvmfs_config setup
        sudo sh -c 'echo "CVMFS_CLIENT_PROFILE=single" > /etc/cvmfs/default.local '
        sudo sh -c 'echo "CVMFS_REPOSITORIES=sft.cern.ch" >> /etc/cvmfs/default.local '
