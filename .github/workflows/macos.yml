@@ -33,7 +33,7 @@ jobs:
        done
        ls -alh /Users/Shared/cvmfs/cvmfs-config.cern.ch/etc
        ls -alh /Users/Shared/cvmfs/sft.cern.ch/lcg
-       sudo sh -c 'echo -e "cvmfs\tUsers/Shared/cvmfs > /etc/synthetic.conf'
+       sudo sh -c 'echo -e "cvmfs\tUsers/Shared/cvmfs\n" > /etc/synthetic.conf'
        sudo shutdown -r now
        ls /cvmfs
        ls /cvmfs/sft.cern.ch
