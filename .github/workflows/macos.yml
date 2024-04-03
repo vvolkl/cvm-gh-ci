@@ -33,7 +33,7 @@ jobs:
        done
        ls -alh /Users/Shared/cvmfs/cvmfs-config.cern.ch/etc
        ls -alh /Users/Shared/cvmfs/sft.cern.ch/lcg
-       sudo sh -c 'echo -e "cvmfs\tUsers/Shared/cvmfs\n#comment\n" > /etc/synthetic.conf'
+       sudo zsh -c 'echo -e "cvmfs\tUsers/Shared/cvmfs\n#comment\n" > /etc/synthetic.conf'
        cat /etc/synthetic.conf
        sudo chown root:wheel /etc/synthetic.conf
        sudo chmod a+r /etc/synthetic.conf
