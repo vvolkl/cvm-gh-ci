@@ -34,7 +34,9 @@ jobs:
        ls -alh /Users/Shared/cvmfs/cvmfs-config.cern.ch/etc
        ls -alh /Users/Shared/cvmfs/sft.cern.ch/lcg
        sudo sh -c 'echo -e "cvmfs\tUsers/Shared/cvmfs\n#comment\n" > /etc/synthetic.conf'
-       sudo /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -B || true
+       cat /etc/synthetic.conf
+       sudo chown root:wheel /etc/synthetic.conf
+       sudo chmod a+r /etc/synthetic.conf
        sudo /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t || true
        ls /cvmfs
        ls /cvmfs/sft.cern.ch
