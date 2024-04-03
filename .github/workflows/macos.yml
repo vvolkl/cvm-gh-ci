@@ -30,9 +30,10 @@ jobs:
        do
          mkdir -p /Users/Shared/cvmfs/${repo}
          sudo mount -t cvmfs ${repo} /Users/Shared/cvmfs/${repo}
-        ls /Users/Shared/cvmfs/$repo
        done
-       sudo mkdir ln -s /Users/Shared/cvmfs/ /cvmfs
+       ls -alh /Users/Shared/cvmfs/cvmfs-config.cern.ch/etc
+       ls -alh /Users/Shared/cvmfs/sft.cern.ch/lcg
+       sudo ln -s /Users/Shared/cvmfs/ /cvmfs
        ls /cvmfs
        ls /cvmfs/sft.cern.ch
 
