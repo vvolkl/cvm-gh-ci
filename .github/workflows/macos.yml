@@ -33,6 +33,8 @@ jobs:
        done
        ls -alh /Users/Shared/cvmfs/cvmfs-config.cern.ch/etc
        ls -alh /Users/Shared/cvmfs/sft.cern.ch/lcg
+       sudo csrutil disable
+       sudo mount -uw /
        sudo ln -s /Users/Shared/cvmfs/ /cvmfs
        ls /cvmfs
        ls /cvmfs/sft.cern.ch
